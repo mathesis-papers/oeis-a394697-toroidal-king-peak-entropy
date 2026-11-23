@@ -1,0 +1,40 @@
+{
+  "id": "oeis-a394697-toroidal-king-peak-entropy",
+  "revision": 2,
+  "problem_ids": [
+    "oeis-a394697-toroidal-king-peak-entropy",
+    "OEIS:A394697"
+  ],
+  "topic": "The all-integer largest-coefficient entropy limit for toroidal king graphs",
+  "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "Extending Liang's (2025) free-board peak-entropy argument, we prove Kotěšovec's conjecture in OEIS A394697, history revision 21 (6 May 2026; entry snapshot revision 24): the largest coefficient of the n-by-n toroidal king independence polynomial has n²th root tending to A247413 through all integers n >= 3. The same comparison gives fixed-positive-activity entropy on arbitrary growing rectangles with free, cylindrical or toroidal boundaries, explicit boundary-to-area error bounds, and equal entropy for marked-count moments. Scalar log-concavity fails infinitely often; the even maximum-packing formula and its limiting density are reproved.",
+  "summary": "Weighted rectangular and marked-count extensions of the toroidal peak-entropy limit, with explicit error bounds, precise prior attribution, packing consequences, and exact finite checks.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean",
+  "posing_source": {
+    "url": "https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A394/A394697.seq",
+    "entry": "A394697",
+    "revision": 24,
+    "locator": "Conjecture comment added by Vaclav Kotesovec in history revision 21 on 6 May 2026; retained in entry snapshot revision 24",
+    "history_revision": 21,
+    "history_url": "https://oeis.org/history?seq=A394697",
+    "entry_author": "Todd Hildebrant",
+    "conjecture_author": "Václav Kotěšovec"
+  },
+  "coverage": {
+    "all_integer_limit": "Theorem 1; corresponding Lean declaration ToroidalKingsPeakEntropy.result",
+    "tiling_identity": "Equation (4); corresponding Lean declaration ToroidalKingsEmptySeam.tiling_free_identity",
+    "weighted_and_cylindrical_limits": "Written proof, Corollary 3",
+    "rectangular_limits_and_error": "Written proof, Corollary 4, arbitrary aspect ratios with both sides tending to infinity",
+    "marked_count_moments": "Written proof, Corollary 5, fixed activity z > 0 and fixed real power p >= 0; extending Liang (2025), Proposition 4.1",
+    "scalar_log_concavity": "Refuted by the explicit n = 4 counterexample; infinitely many failures proved in Proposition 7",
+    "entropy_monotonicity": "Listed source values increase for 3 <= n <= 21; universal monotonicity is not asserted in the source and is not covered",
+    "maximum_cardinality_A189889": "Corollary 6 reproves the even branch and limiting density of the previously recorded formula; exact odd branch is not covered",
+    "finite_coefficients": "verify.py and checks.json, 3 <= n <= 8; independent vertex recurrence at n = 3, 4",
+    "rectangular_finite_checks": "sibling_checks.py and sibling-checks.json; width 3,...,6 and height 3,...,8, activities 1/2,1,2 and moment powers 0,1,2,3"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "all_checks_passed": true,
+  "coverage": {
+    "independent_vertex_recurrence": "All three boundary conditions with n in {3,4}; equality of complete coefficient lists.",
+    "infinite_limits": "Written proofs in note.tex, Theorem 1 and Corollary 3.",
+    "row_transfer_polynomials": "Free, cylindrical, and toroidal squares with 3 <= n <= 8; free squares also with 0 <= n <= 2.",
+    "weighted_inequalities": "Exact rational activities 1/2, 1, 2 with 3 <= n <= 8."
+  },
+  "rows": [
+    {
+      "cylinder_total": 19,
+      "free_total": 35,
+      "modal_sizes": [
+        1
+      ],
+      "n": 3,
+      "torus_coefficients": [
+        1,
+        9
+      ],
+      "torus_peak": 9,
+      "torus_total": 10
+    },
+    {
+      "cylinder_total": 205,
+      "free_total": 314,
+      "modal_sizes": [
+        2
+      ],
+      "n": 4,
+      "torus_coefficients": [
+        1,
+        16,
+        56,
+        48,
+        12
+      ],
+      "torus_peak": 56,
+      "torus_total": 133
+    },
+    {
+      "cylinder_total": 3011,
+      "free_total": 6427,
+      "modal_sizes": [
+        3
+      ],
+      "n": 5,
+      "torus_coefficients": [
+        1,
+        25,
+        200,
+        600,
+        575,
+        10
+      ],
+      "torus_peak": 600,
+      "torus_total": 1411
+    },
+    {
+      "cylinder_total": 92875,
+      "free_total": 202841,
+      "modal_sizes": [
+        5
+      ],
+      "n": 6,
+      "torus_coefficients": [
+        1,
+        36,
+        486,
+        3108,
+        9837,
+        14940,
+        10596,
+        3420,
+        486,
+        28
+      ],
+      "torus_peak": 14940,
+      "torus_total": 42938
+    },
+    {
+      "cylinder_total": 4763459,
+      "free_total": 12727570,
+      "modal_sizes": [
+        7
+      ],
+      "n": 7,
+      "torus_coefficients": [
+        1,
+        49,
+        980,
+        10388,
+        63553,
+        229908,
+        486668,
+        576856,
+        346381,
+        81095,
+        980
+      ],
+      "torus_peak": 576856,
+      "torus_total": 1796859
+    },
+    {
+      "cylinder_total": 459630701,
+      "free_total": 1355115601,
+      "modal_sizes": [
+        9
+      ],
+      "n": 8,
+      "torus_coefficients": [
+        1,
+        64,
+        1760,
+        27328,
+        265008,
+        1678336,
+        7063520,
+        19760512,
+        36285336,
+        42752576,
+        31431680,
+        14077824,
+        3770640,
+        593088,
+        53472,
+        2624,
+        60
+      ],
+      "torus_peak": 42752576,
+      "torus_total": 157763829
+    }
+  ],
+  "scalar_log_concavity_counterexample": {
+    "a_n_squared": 3136,
+    "a_previous_times_a_next": 5400,
+    "n": 4
+  },
+  "schema_version": 1
+}

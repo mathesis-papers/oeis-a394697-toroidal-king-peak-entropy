@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-22"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/oeis-a394697-toroidal-king-peak-entropy?version=2"
+license: "CC-BY-4.0"

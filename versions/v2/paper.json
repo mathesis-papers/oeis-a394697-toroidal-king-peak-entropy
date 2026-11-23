@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 116025,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "de5f192b8b296b253f8df518762050a1592300a0149b89ac5e9e5c0b784fcc48",
+      "sha256": "de5f192b8b296b253f8df518762050a1592300a0149b89ac5e9e5c0b784fcc48"
+    },
+    "source": {
+      "bytes": 19334,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "be95c03b061b6f7a275e595cd4b43cd3caf58c135b422f030c9995f8158107b7",
+      "sha256": "be95c03b061b6f7a275e595cd4b43cd3caf58c135b422f030c9995f8158107b7"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "Extending Liang's (2025) free-board peak-entropy argument, we prove Kotěšovec's conjecture in OEIS A394697, history revision 21 (6 May 2026; entry snapshot revision 24): the largest coefficient of the n-by-n toroidal king independence polynomial has n²th root tending to A247413 through all integers n >= 3. The same comparison gives fixed-positive-activity entropy on arbitrary growing rectangles with free, cylindrical or toroidal boundaries, explicit boundary-to-area error bounds, and equal entropy for marked-count moments. Scalar log-concavity fails infinitely often; the even maximum-packing formula and its limiting density are reproved.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 116025,
+      "sha256": "de5f192b8b296b253f8df518762050a1592300a0149b89ac5e9e5c0b784fcc48",
+      "url": "/api/v1/collected-papers/oeis-a394697-toroidal-king-peak-entropy/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-22T22:15:13.383106053Z",
+    "record": "oeis-a394697-toroidal-king-peak-entropy",
+    "repository_name": "oeis-a394697-toroidal-king-peak-entropy",
+    "source": {
+      "bytes": 19334,
+      "sha256": "be95c03b061b6f7a275e595cd4b43cd3caf58c135b422f030c9995f8158107b7",
+      "url": "/api/v1/collected-papers/oeis-a394697-toroidal-king-peak-entropy/files/source?version=2"
+    },
+    "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-22T22:15:13.383106053Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "oeis-a394697-toroidal-king-peak-entropy"
+  }
+}

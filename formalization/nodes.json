@@ -1,0 +1,277 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s1",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "The limit in \\eqref{constant} exists, and\n\\[\n \\lim_{n\\to\\infty}a_n^{1/n^2}\n =\\lim_{n\\to\\infty}T_n^{1/n^2}\n =\\lim_{n\\to\\infty}F_n^{1/n^2}=\\gam.\n\\]\nEquivalently, for every $\\varepsilon>0$ there is an integer $N\\geq3$\nsuch that $|a_n^{1/n^2}-\\gam|<\\varepsilon$ for every integer $n\\geq N$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s2",
+      "kind": "paper",
+      "label": "Lemma",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s2",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "The sequence $n^{-2}\\log F_n$ converges to\n\\[\n h=\\inf_{k\\geq1}\\frac{\\log F_k}{k^2},\\qquad\n \\frac{\\log2}{4}\\leq h\\leq\\log2.\n\\]",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s3",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "For each fixed real $z>0$ there is a number $h(z)$ such that\n\\[\n \\lim_{n\\to\\infty}\\frac{\\log F_n(z)}{n^2}\n =\\lim_{n\\to\\infty}\\frac{\\log C_n(z)}{n^2}\n =\\lim_{n\\to\\infty}\\frac{\\log T_n(z)}{n^2}\n =\\lim_{n\\to\\infty}\\frac{\\log A_n(z)}{n^2}=h(z).\n\\]\nMoreover $\\frac14\\log(1+z)\\leq h(z)\\leq\\log(1+z)$.\nIn particular the total-count sequences A067958 and A212269 have\n$n^2$th-root limit $\\gam$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s4",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s4",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s4",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "Let $m,n\\geq3$, $z>0$, and let $Z^b_{m,n}(z)$ be the partition\nfunction on the $m\\times n$ king board with boundary condition\n$b\\in\\{\\mathrm{free},\\mathrm{cylinder},\\mathrm{torus}\\}$. In the\ncylindrical case the width $m$ is periodic. Let $P^b_{m,n}(z)$ be its\nlargest weighted coefficient and put $L=\\log(1+z)$. Then\n\\[\n \\frac{\\log F_{m,n}(z)}{(m+1)(n+1)}\\leq h(z)\n \\leq\\frac{\\log F_{m,n}(z)}{mn},\n \\tag{5}\n\\]\nwhere $F_{m,n}=Z^{\\mathrm{free}}_{m,n}$, and\n\\[\n -\\frac{(m+n-1)L+\\log(mn+1)}{mn}\n \\leq \\frac{\\log P^b_{m,n}(z)}{mn}-h(z)\n \\leq\\frac{(m+n+1)L}{mn}.\n \\tag{6}\n\\]\nConsequently all three partition functions and their largest weighted\ncoefficients have entropy $h(z)$ whenever $\\min(m,n)\\to\\infty$,\nwithout a restriction on aspect ratio.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s5",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s5",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s5",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "For fixed $z>0$ and $p\\geq0$, write\n$Z^b_{m,n}(z)=\\sum_k c^b_{m,n,k}z^k$ and define\n\\[\n M^b_{m,n,p}(z)=\\sum_{k\\geq1}k^p c^b_{m,n,k}z^k.\n\\]\nThen $\\log M^b_{m,n,p}(z)/(mn)\\to h(z)$ as\n$\\min(m,n)\\to\\infty$, for each of the three boundaries.\nFor $p=1$, this counts configurations with one distinguished king.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s6",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s6",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s6",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "The degree $\\alpha_n$ of $I_n$ satisfies\n$\\lfloor n/2\\rfloor^2\\leq\\alpha_n\\leq\\lfloor n^2/4\\rfloor$.\nIn particular $\\alpha_n=n^2/4$ for even $n\\geq4$, and\n$\\alpha_n/n^2\\to1/4$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s7",
+      "contributor": null,
+      "identity": "collected:oeis-a394697-toroidal-king-peak-entropy:2:s7",
+      "kind": "paper",
+      "label": "Proposition",
+      "lean_source": {
+        "revision": "074df09ddbbef1843ddb383577bfaa827f753e36",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean"
+      },
+      "lineage": "collected:oeis-a394697-toroidal-king-peak-entropy:s7",
+      "macros": {
+        "\\gam": "\\gamma"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "oeis-a394697-toroidal-king-peak-entropy",
+      "scope": "in_scope",
+      "statement": "The scalar sequence $(a_n)_{n\\geq3}$ is not log-concave:\n$a_4^2=3136<5400=a_3a_5$. In fact the inequality\n$a_n^2<a_{n-1}a_{n+1}$ holds for infinitely many $n$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted toroidal extensions of Liang (2025): OEIS A394697, history revision 21, 6 May 2026 conjecture",
+      "toolchain": null,
+      "version": 2,
+      "work": "oeis-a394697-toroidal-king-peak-entropy"
+    }
+  ]
+}

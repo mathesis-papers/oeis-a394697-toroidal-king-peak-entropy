@@ -1,0 +1,442 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\gam}{\gamma}
+\title{Weighted toroidal extensions of Liang (2025):\\
+OEIS A394697, history revision 21,\\6 May 2026 conjecture}
+\author{Haobo Ma\thanks{ChronoAI Pte Ltd, Singapore.}\and
+Wenlin Zhang\thanks{National University of Singapore; ChronoAI Pte Ltd, Singapore.}}
+\date{7 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Extending Liang's (2025) free-board peak-entropy argument, we prove
+Kot\v{e}\v{s}ovec's conjecture in OEIS A394697, history revision 21
+(6 May 2026; entry snapshot revision 24): the largest coefficient of the independence
+polynomial of the $n\times n$ toroidal king graph has $n^2$th root tending
+to the square-tiling constant A247413. The limit holds through all integers
+$n\geq3$. An empty final row and column compare toroidal counts with free
+counts; a maximum-versus-sum estimate then transfers their entropy to the
+largest coefficient. The same
+argument applies at every fixed positive activity and to rectangular
+boards with free, cylindrical or toroidal boundaries, with explicit
+boundary-to-area error bounds. Positive moments of the number of kings
+have the same leading entropy. We also disprove the entry's scalar
+log-concavity comment and show that such failures occur infinitely often.
+\end{abstract}
+
+\section{The question and its normalization}
+At history revision 21 of A394697~\cite{a394697} (6 May 2026),
+Kot\v{e}\v{s}ovec conjectured that $a(n)^{1/n^2}$ ``tends to A247413.''
+The conjecture remains in entry revision 24. It asserts convergence of a modal
+coefficient, rather than of the total number of independent sets. We prove
+that assertion with the literal normalization and constant given in the
+entry. In particular, no restriction to even board sizes is necessary.
+
+For $n\geq3$, let $G_n$ have vertex set $(\mathbb Z/n\mathbb Z)^2$.
+Distinct vertices are adjacent if their cyclic distances in both
+coordinates are at most one. Write
+\[
+ I_n(x)=\sum_{k=0}^{n^2}c_{n,k}x^k,\qquad
+ T_n=I_n(1),\qquad a_n=\max_{0\leq k\leq n^2}c_{n,k}.
+\]
+Thus $c_{n,k}$ counts independent sets of size $k$, including the empty
+set when $k=0$; zero coefficients remain in the range of the maximum.
+Let $F_n$ count independent sets on the free $n\times n$ king board,
+where ordinary coordinate differences replace cyclic distances, and set
+$F_0=1$. Let $B_m$ count tilings of an $m\times m$ square by unit and
+$2\times2$ squares, including $B_0=1$. The constant in the conjecture is
+\[
+ \gam=\lim_{m\to\infty}B_m^{1/m^2},
+ \tag{1}\label{constant}
+\]
+the constant recorded in A247413~\cite{a247413}; the tiling sequence is
+A063443~\cite{a063443}. Its existence is included in the proof below.
+
+\begin{theorem}\label{main}
+The limit in \eqref{constant} exists, and
+\[
+ \lim_{n\to\infty}a_n^{1/n^2}
+ =\lim_{n\to\infty}T_n^{1/n^2}
+ =\lim_{n\to\infty}F_n^{1/n^2}=\gam.
+\]
+Equivalently, for every $\varepsilon>0$ there is an integer $N\geq3$
+such that $|a_n^{1/n^2}-\gam|<\varepsilon$ for every integer $n\geq N$.
+\end{theorem}
+
+Free-board entropy predates this conjecture. Calkin, James, Purvis, Race,
+Schneider and Yancey~\cite{kings}, Sections 3--4, study free king counts
+and bound their exponential growth. Liang~\cite{liang}, Proposition 3.1,
+identifies the common leading entropy of free-rectangle total counts and
+largest coefficients using the number of possible cardinalities. His
+later study~\cite{liang2}, Sections 3.2 and 4, compares king-board growth
+with boundary-dependent corrections in related grid models. The present
+proof combines that maximum-versus-sum mechanism with a direct
+two-coordinate seam comparison, keeping the tiling side shift explicit.
+Hildebrant~\cite{hildebrant}, Proposition 2.5 and Remark 2.6, supplies the transfer-operator
+trace formulation used in the A394697 entry; it is useful for finite
+examples but is not needed for the limiting argument.
+
+\section{Free entropy, empty seams, and the peak}
+\begin{lemma}\label{entropy}
+The sequence $n^{-2}\log F_n$ converges to
+\[
+ h=\inf_{k\geq1}\frac{\log F_k}{k^2},\qquad
+ \frac{\log2}{4}\leq h\leq\log2.
+\]
+\end{lemma}
+\begin{proof}
+Fix $k\geq1$ and write $n=qk+r$, where $0\leq r<k$.
+Partition the square into $q^2$ disjoint $k\times k$ blocks and
+$n^2-q^2k^2$ remaining vertices. Restricting an independent set to
+these parts is injective. Each block has at most $F_k$ choices;
+each remaining vertex has at most two. Edges between parts only
+remove choices. Hence
+\[
+ F_n\leq F_k^{q^2}\,2^{n^2-q^2k^2}.
+\]
+Divide its logarithm by $n^2$ and let $n\to\infty$ with $k$ fixed.
+Since $q/n\to1/k$ and $(n^2-q^2k^2)/n^2\to0$, the limsup is at
+most $\log F_k/k^2$. Taking the infimum over $k$ gives a limsup
+at most $h$; the definition of $h$ bounds every term below by $h$.
+This proves convergence. All subsets of the vertices whose two
+coordinates are even are independent, so
+$F_n\geq2^{\lceil n/2\rceil^2}$. Together with $F_n\leq2^{n^2}$,
+this gives the stated bounds on $h$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+First compare boundary conditions. Embed a free $(n-1)\times(n-1)$
+configuration in coordinates $0,\ldots,n-2$ of the $n$-torus and
+leave its final row and column empty. For two occupied coordinates,
+the ordinary gap is at most $n-2$. Therefore a cyclic gap at most
+one cannot arise from a wraparound gap of $n-1$: it is exactly an
+ordinary gap at most one. This is a size-preserving injection into
+toroidal independent sets. Conversely, forgetting the wraparound
+edges preserves every toroidal independent set as a free one. Thus
+\[
+ F_{n-1}\leq T_n\leq F_n\qquad(n\geq3).
+ \tag{2}\label{seam}
+\]
+Both bounding logarithms divided by $n^2$ tend to $h$, because
+\[
+ \frac{\log F_{n-1}}{n^2}
+ =\left(\frac{n-1}{n}\right)^2
+   \frac{\log F_{n-1}}{(n-1)^2}\longrightarrow h.
+\]
+Consequently $n^{-2}\log T_n\to h$.
+
+There are $n^2+1$ cardinality classes, including zero. Nonnegativity
+and summation of the coefficients give
+\[
+ a_n\leq T_n\leq(n^2+1)a_n.
+ \tag{3}\label{peak}
+\]
+Since the empty set ensures $a_n\geq1$, logarithms are defined, and
+\[
+ \frac{\log T_n-\log(n^2+1)}{n^2}
+ \leq\frac{\log a_n}{n^2}\leq\frac{\log T_n}{n^2}.
+\]
+The loss $\log(n^2+1)/n^2$ tends to zero. Thus
+$n^{-2}\log a_n\to h$.
+
+Finally, encode a $2\times2$ tile in an $m\times m$ square by its
+lower-left cell, in $\{0,\ldots,m-2\}^2$. Two such tiles overlap
+exactly when the lower-left cells differ by at most one in both
+coordinates. Disjoint tiles therefore correspond exactly to a free
+king configuration on side $m-1$. Every other cell has a unique unit
+tile, giving the bijection
+\[
+ B_m=F_{m-1}\qquad(m\geq1).
+ \tag{4}\label{tiling}
+\]
+It follows that $m^{-2}\log B_m\to h$ as well. Exponentiating all
+these limits identifies \eqref{constant} with $e^h$ and proves every
+asserted limit. This also establishes the displayed $\varepsilon$--$N$
+statement through all integers, without a parity condition.
+\end{proof}
+
+\section{Weighted counts and a scalar counterexample}
+For $z>0$, let $F_n(z)$ and $C_n(z)$ be the independent-set
+polynomials evaluated at $z$ for the free board and the board with
+horizontal periodicity only. Set $T_n(z)=I_n(z)$ and
+$A_n(z)=\max_k c_{n,k}z^k$.
+
+\begin{corollary}\label{weighted}
+For each fixed real $z>0$ there is a number $h(z)$ such that
+\[
+ \lim_{n\to\infty}\frac{\log F_n(z)}{n^2}
+ =\lim_{n\to\infty}\frac{\log C_n(z)}{n^2}
+ =\lim_{n\to\infty}\frac{\log T_n(z)}{n^2}
+ =\lim_{n\to\infty}\frac{\log A_n(z)}{n^2}=h(z).
+\]
+Moreover $\frac14\log(1+z)\leq h(z)\leq\log(1+z)$.
+In particular the total-count sequences A067958 and A212269 have
+$n^2$th-root limit $\gam$.
+\end{corollary}
+\begin{proof}
+All configurations have positive weight $z^{|S|}$. Restriction to
+disjoint pieces factors this weight, so Lemma~\ref{entropy} holds
+with $F_n(z)$ and with $1+z$ replacing $2$. Subsets of the
+even-coordinate vertices supply the lower bound. The injections in
+\eqref{seam} preserve $|S|$, and the edge sets are nested, giving
+\[
+ F_{n-1}(z)\leq T_n(z)\leq C_n(z)\leq F_n(z).
+\]
+The same squeeze applies. Finally
+$A_n(z)\leq T_n(z)\leq(n^2+1)A_n(z)$, so \eqref{peak} applies
+to weighted coefficients. At $z=1$, A067958 counts the toroidal
+configurations and A212269 the cylindrical ones~\cite{boundaries}.
+\end{proof}
+
+\begin{corollary}[Rectangles and explicit entropy bounds]\label{rectangles}
+Let $m,n\geq3$, $z>0$, and let $Z^b_{m,n}(z)$ be the partition
+function on the $m\times n$ king board with boundary condition
+$b\in\{\mathrm{free},\mathrm{cylinder},\mathrm{torus}\}$. In the
+cylindrical case the width $m$ is periodic. Let $P^b_{m,n}(z)$ be its
+largest weighted coefficient and put $L=\log(1+z)$. Then
+\[
+ \frac{\log F_{m,n}(z)}{(m+1)(n+1)}\leq h(z)
+ \leq\frac{\log F_{m,n}(z)}{mn},
+ \tag{5}\label{bracket}
+\]
+where $F_{m,n}=Z^{\mathrm{free}}_{m,n}$, and
+\[
+ -\frac{(m+n-1)L+\log(mn+1)}{mn}
+ \leq \frac{\log P^b_{m,n}(z)}{mn}-h(z)
+ \leq\frac{(m+n+1)L}{mn}.
+ \tag{6}\label{error}
+\]
+Consequently all three partition functions and their largest weighted
+coefficients have entropy $h(z)$ whenever $\min(m,n)\to\infty$,
+without a restriction on aspect ratio.
+\end{corollary}
+\begin{proof}
+Partition a large free square into $m\times n$ rectangles and a
+remainder. Restriction multiplies the rectangular weights, and the
+remainder contributes at most $(1+z)$ per vertex. Taking its entropy
+limit gives the upper bound in \eqref{bracket}. Conversely, place
+independently chosen $m\times n$ configurations in a large square,
+with an empty row and column between successive rectangles. Their
+density is $1/((m+1)(n+1))$; this gives the lower bound. This is the
+separated-block method used for king entropy by Calkin et al.~\cite{kings},
+Lemma 4; Liang~\cite{liang2}, Section 2.2, uses analogous brackets
+for the ordinary grid model.
+
+Write $s=m+n-1$. Restricting a free configuration to its
+$(m-1)\times(n-1)$ subrectangle leaves $s$ vertices, so
+\[
+ F_{m,n}(z)\leq(1+z)^sF_{m-1,n-1}(z),\qquad
+ F_{m-1,n-1}(z)\leq Z^b_{m,n}(z)\leq F_{m,n}(z).
+\]
+The second inequality uses empty final coordinate lines, just as
+in \eqref{seam}. Thus $\log Z^b_{m,n}/(mn)\geq h(z)-sL/(mn)$.
+The lower bracket also gives
+$\log F_{m,n}/(mn)\leq h(z)+(m+n+1)h(z)/(mn)$;
+use $h(z)\leq L$. Finally
+$P^b_{m,n}\leq Z^b_{m,n}\leq(mn+1)P^b_{m,n}$ gives \eqref{error}.
+Every displayed error tends to zero when both side lengths grow.
+\end{proof}
+
+\begin{corollary}[Marked configurations]\label{marked}
+For fixed $z>0$ and $p\geq0$, write
+$Z^b_{m,n}(z)=\sum_k c^b_{m,n,k}z^k$ and define
+\[
+ M^b_{m,n,p}(z)=\sum_{k\geq1}k^p c^b_{m,n,k}z^k.
+\]
+Then $\log M^b_{m,n,p}(z)/(mn)\to h(z)$ as
+$\min(m,n)\to\infty$, for each of the three boundaries.
+For $p=1$, this counts configurations with one distinguished king.
+\end{corollary}
+\begin{proof}
+Since $1\leq k^p\leq(mn)^p$ for $1\leq k\leq mn$,
+$Z^b_{m,n}(z)-1\leq M^b_{m,n,p}(z)\leq(mn)^p Z^b_{m,n}(z)$.
+Corollary~\ref{rectangles} and $h(z)\geq\frac14\log(1+z)>0$
+show that subtracting $1$ does not change the entropy. The factor
+$(mn)^p$ contributes $p\log(mn)/(mn)\to0$.
+The free-board $p=1,z=1$ case reproves Liang~\cite{liang},
+Proposition 4.1; the statement here includes periodic boundaries.
+\end{proof}
+
+\begin{corollary}[A189889: even sizes and leading density]\label{packing}
+The degree $\alpha_n$ of $I_n$ satisfies
+$\lfloor n/2\rfloor^2\leq\alpha_n\leq\lfloor n^2/4\rfloor$.
+In particular $\alpha_n=n^2/4$ for even $n\geq4$, and
+$\alpha_n/n^2\to1/4$.
+\end{corollary}
+\begin{proof}
+Choose both coordinates from $0,2,\ldots,2\lfloor n/2\rfloor-2$
+to obtain the lower bound. Each cyclic $2\times2$ square contains
+at most one king. Summing this inequality over all $n^2$ such
+squares counts each king four times, giving $4\alpha_n\leq n^2$.
+The bounds coincide at even $n$ and have the same limiting density.
+A189889~\cite{capacity} records the stronger exact formula
+$\lfloor n\lfloor n/2\rfloor/2\rfloor$, attributed there to
+Watkins and Ricci (2004); only its even branch and leading density
+are reproved here.
+\end{proof}
+
+\begin{proposition}\label{logconcavity}
+The scalar sequence $(a_n)_{n\geq3}$ is not log-concave:
+$a_4^2=3136<5400=a_3a_5$. In fact the inequality
+$a_n^2<a_{n-1}a_{n+1}$ holds for infinitely many $n$.
+\end{proposition}
+\begin{proof}
+The entry gives $a_3=9$, $a_4=56$, $a_5=600$; the same values
+follow from the finite polynomials below. For the infinite assertion,
+suppose instead that $a_n^2\geq a_{n-1}a_{n+1}$ for every sufficiently
+large $n$. Then the successive differences of $b_n=\log a_n$ are
+eventually nonincreasing, hence bounded above by a constant $D$.
+Telescoping gives $b_n\leq E+Dn$ for a fixed $E$. Since $b_n\geq0$,
+this forces $b_n/n^2\to0$, contradicting
+Theorem~\ref{main} and $h\geq\log2/4>0$.
+\end{proof}
+
+This addresses the literal comment ``a(n) is empirically log-concave
+for n $\leq$ 21'' in A394697. It is
+distinct from log-concavity of the coefficient list $(c_{n,k})_k$
+of a single independence polynomial.
+
+\section{Coverage and finite examples}
+The source locators below refer to the OEIS data at revision
+\begin{center}\small\texttt{77073cc8105b8042be07ec0d885da5ea5960ff3c}.\end{center}
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.42\linewidth}>{\raggedright\arraybackslash}p{.52\linewidth}@{}}
+\toprule
+Source item & Mathematical coverage\\
+\midrule
+A394697, history rev. 21, 6 May 2026 conjecture & Proved: Theorem~\ref{main}, every integer $n\geq3$; extending Liang (2025).\\
+A394697, scalar log-concavity comment & Refuted (explicit counterexample): Proposition~\ref{logconcavity}; infinitely many failures.\\
+A394697, empirical increase of $n^{-2}\log a_n$ for $3\leq n\leq21$ & Verified on the listed values. Universal monotonicity is not asserted in the source; not covered here.\\
+A394697, transfer trace and examples & Reproved; prior formula Hildebrant (2026), Prop. 2.5. Complete coefficients checked for $3\leq n\leq8$.\\
+A063443, Woods's 27 Aug. 2011 tiling/free-board comment & Reproved; prior identity Woods (2011), bijection \eqref{tiling}.\\
+A247413 and A063443, tiling entropy limit & Reproved; prior limit credited to McKay (1996) in A063443; Theorem~\ref{main}.\\
+A067958, toroidal total count & Limit proved in Corollary~\ref{weighted}.\\
+A212269, cylindrical limit formula & Reproved; prior formula Kot\v{e}\v{s}ovec, entry rev. 34 (2024)~\cite{boundaries}.\\
+A189889, maximum number of kings & Reproved in part; even branch and density in Corollary~\ref{packing}. Exact odd branch not covered.\\
+Liang (2025), Props. 3.1 and 4.1 & Reproved and extended: free peak and marked-count entropy; Corollaries~\ref{rectangles}--\ref{marked}.\\
+Liang (2025), arXiv:2507.04007, Secs. 3.2, 4 & Prior boundary comparisons cited; convergence and values of surface coefficients not covered.\\
+Weighted rectangular bounds and periodic marked moments & Not posed in these sources; proved in Corollaries~\ref{rectangles}--\ref{marked}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For completeness, the transfer trace in A394697 follows by indexing
+rows by the independent subsets $U$ of the cycle $C_n$. Put
+$M_n(x)_{U,V}=x^{|U|}$ when no vertex of $U$ equals or neighbors
+a vertex of $V$, and put it equal to zero otherwise. Expanding
+$\operatorname{tr}(M_n(x)^n)$ sums over ordered cyclic lists of
+$n$ rows. Consecutive-row compatibility is exactly king independence,
+including the last and first rows, and the product of entries is
+$x^{\sum |U|}$. Each labelled toroidal configuration determines one
+such list; no quotient by cyclic rotations is taken. Hence the trace
+equals $I_n(x)$.
+
+The complete polynomials at the first three sizes are
+\begin{align*}
+ I_3(x)&=1+9x,\\
+ I_4(x)&=1+16x+56x^2+48x^3+12x^4,\\
+ I_5(x)&=1+25x+200x^2+600x^3+575x^4+10x^5.
+\end{align*}
+The accompanying \texttt{verify.py} uses row-state transfer and,
+independently for $n=3,4$, a vertex include/exclude recurrence for all
+three boundary conditions. It reproduces complete toroidal
+coefficient lists for $3\leq n\leq8$ and tests the weighted
+inequalities at the exact rational activities $1/2,1,2$.
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}
+\toprule $n$ & $a_n$ & $T_n$ & $F_n$\\\midrule
+3&9&10&35\\
+4&56&133&314\\
+5&600&1411&6427\\
+6&14940&42938&202841\\
+7&576856&1796859&12727570\\
+8&42752576&157763829&1355115601\\\bottomrule
+\end{tabular}
+\end{center}
+These finite examples are separate from the proofs of the infinite
+limits.
+Exact integer comparisons of the A394697 b-file values give
+$a_n^2<a_{n-1}a_{n+1}$ for every $4\leq n\leq20$, and
+$a_{n+1}^{n^2}>a_n^{(n+1)^2}$ for every $3\leq n\leq20$.
+The latter verifies the entry's finite entropy-increase observation;
+it does not imply monotonicity at all sizes. The accompanying
+\texttt{sibling\_checks.py} also checks rectangular seam and
+coefficient inequalities at $z=1/2,1,2$, for $3\leq m\leq6$ and
+$3\leq n\leq8$, and compares the two enumeration methods on
+$3\times3$, $3\times4$, and $4\times3$ boards.
+
+\paragraph{Formal statements and written proofs.}
+At source revision
+\begin{center}\small\texttt{074df09ddbbef1843ddb383577bfaa827f753e36},\end{center}
+the Lean declaration
+\href{https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsPeakEntropy.lean}{\texttt{ToroidalKingsPeakEntropy.result}}
+states the $\varepsilon$--$N$ limit in Theorem~\ref{main} for the
+maximum over all cardinalities, with the constant defined from the
+tiling sequence. In the same namespace hierarchy,
+\href{https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/ToroidalKingsEmptySeam.lean}{\texttt{ToroidalKingsEmptySeam}}
+contains \texttt{free\_le\_torus}, \texttt{torus\_le\_free},
+\texttt{count\_le\_mul\_peak}, \texttt{tiling\_free\_identity},
+and \texttt{free\_log\_limit}, corresponding to the seam, cardinality,
+tiling, and free-entropy statements above. Corollary~\ref{weighted},
+Corollaries~\ref{rectangles}--\ref{packing},
+Proposition~\ref{logconcavity}, and the displayed trace argument have
+the written proofs given here. The finite coefficient calculations
+are specified in \texttt{checks.json} and are reproducible with
+Python 3 using \texttt{verify.py}.
+The supporting declaration
+\href{https://github.com/the-omega-institute/trureturing/blob/074df09ddbbef1843ddb383577bfaa827f753e36/D5/S3/Combinatorics/Graph/Pressure/RectangularCountEntropy.lean}{\texttt{square\_log\_limit}}
+in \texttt{RectangularCountEntropy}
+gives a square limit for symmetric separately subadditive rectangular
+log-counts with a linear area bound. Its scope is a square-limit
+counterpart, not the weighted rectangular conclusions above.
+
+\begin{thebibliography}{9}\small
+\bibitem{a394697} T. Hildebrant, OEIS A394697, revision 24, 8 May 2026;
+conjecture comment by V. Kot\v{e}\v{s}ovec, history revision 21, 6 May 2026.
+\href{https://oeis.org/history?seq=A394697}{Entry history}.
+\href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A394/A394697.seq}{Pinned entry}.
+\bibitem{a247413} V. Kot\v{e}\v{s}ovec, OEIS A247413, revision 41,
+27 October 2026, formula identifying the A063443 limit.
+\href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A247/A247413.seq}{Pinned entry}.
+\bibitem{a063443} R. Martin and contributors, OEIS A063443, revision
+104, 5 November 2025; tiling definition and A. Woods's 2011 king-board
+comment. \href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A063/A063443.seq}{Pinned entry}.
+\bibitem{kings} N. J. Calkin, K. James, S. Purvis, S. Race,
+K. Schneider and M. Yancey, \emph{Counting Kings: As Easy As
+$\lambda_1,\lambda_2,\lambda_3,\ldots$}, 18 July 2006, Sections 3--4.
+\url{http://www.math.clemson.edu/~kevja/PAPERS/Kings2-2005REU.pdf}.
+\bibitem{liang} K. Liang, \emph{Independent Set Enumeration in King
+Graphs by Tensor Network Contractions}, arXiv:2505.12776v2,
+v1: 19 May 2025, Proposition 3.1, pp. 9--10;
+v2: 23 June 2025, Propositions 3.1 and 4.1, pp. 10--11 and 13--14.
+\url{https://arxiv.org/abs/2505.12776v2}.
+\bibitem{liang2} K. Liang, \emph{Independent Set Enumeration and
+Estimation of Related Constants of Grid Graphs and Their Variants}, arXiv:2507.04007v2,
+8 August 2025, Sections 3.2 and 4.
+\url{https://arxiv.org/abs/2507.04007v2}.
+\bibitem{hildebrant} T. Hildebrant, \emph{Transfer Operators and
+Independence Polynomials for Strong Powers of Circulant Graphs},
+arXiv:2604.14416v1, 15 April 2026, Proposition 2.5 and Remark 2.6.
+\url{https://arxiv.org/abs/2604.14416v1}.
+\bibitem{boundaries} R. H. Hardin, OEIS A067958, revision 25, and
+V. Kot\v{e}\v{s}ovec, OEIS A212269, revision 34, especially the latter's
+limit formula.
+\href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A067/A067958.seq}{A067958};
+\href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A212/A212269.seq}{A212269}.
+\bibitem{capacity} V. Kot\v{e}\v{s}ovec and contributors, OEIS A189889,
+revision 67, 11 April 2026.
+\href{https://github.com/oeis/oeisdata/blob/77073cc8105b8042be07ec0d885da5ea5960ff3c/seq/A189/A189889.seq}{Pinned entry}.
+\end{thebibliography}
+\bigskip
+\noindent\small\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0): \url{https://creativecommons.org/licenses/by/4.0/}.
+\end{document}
